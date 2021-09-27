@@ -7,7 +7,14 @@ services:
       - '8000:80'
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-  # php-laravel:
+
+  php-laravel:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated
+
   # db-mysql:
   # composer:
   # artisan:
